@@ -1,0 +1,28 @@
+#####################################
+# 2018 ithome ironman
+# Author: James Lu
+# Topic: k8s 不自賞 - Day 22 常見問題與建議 (3)
+# Url: https://ithelp.ithome.com.tw/articles/10193953
+# Licence: MIT
+#####################################
+
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+    name: err-exceed-nginx
+spec:
+    replicas: 1
+    template:
+      metadata:
+        labels: 
+          app: nginx
+      spec:
+        containers:
+        - name: nginx
+          image: nginx
+          ports:
+          - containerPort: 80
+          resources:
+            requests:
+              cpu: 1
+
